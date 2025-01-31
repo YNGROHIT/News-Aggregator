@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Welcome to News Aggregator{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="text-center my-5">
+        <h1>Welcome to News Aggregator!</h1>
+        <p>Your one-stop destination for the latest news.</p>
+        <p>Sign up to access more features or log in to stay updated.</p>
+        <div class="d-flex justify-content-center">
+            <a href="{% url 'register' %}" class="btn btn-primary mx-2">Register</a>
+            <a href="{% url 'login' %}" class="btn btn-secondary mx-2">Login</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

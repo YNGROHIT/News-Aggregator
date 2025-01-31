@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Login - News Aggregator{% endblock %}
+
+{% block content %}
+<h2 class="text-center mb-4">Login</h2>
+<form method="post" class="card p-4 mx-auto" style="max-width: 400px;">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" name="email" class="form-control" id="email" placeholder="Email" required>
+    </div>
+    <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" name="password" class="form-control" id="password" placeholder="Password" required>
+    </div>
+    <button type="submit" class="btn btn-primary w-100">Login</button>
+</form>
+<p class="text-center mt-3">Don't have an account? <a href="{% url 'register' %}">Register</a></p>
+{% endblock %}
