@@ -1,0 +1,28 @@
+/* Custom styles for News Aggregator */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+}
+
+.navbar {
+    background-color: #007bff;
+}
+
+.navbar .navbar-brand,
+.navbar .nav-link {
+    color: white;
+}
+
+.navbar .nav-link:hover {
+    color: #ffd700;
+}
+
+footer {
+    background-color: #343a40;
+    color: white;
+    font-size: 14px;
+}
+
+.alert {
+    margin-top: 20px;
+}

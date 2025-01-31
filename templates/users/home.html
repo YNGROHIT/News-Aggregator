@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}Welcome Back, {{ user.first_name }}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="text-center my-5">
+        <h1>Welcome Back, {{ user.first_name }}!</h1>
+        <p>Here's your personalized dashboard.</p>
+    </div>
+    
+    <!-- User Profile Section -->
+    <div class="card mb-4">
+        <div class="card-header">
+            <h4>Your Profile</h4>
+        </div>
+        <div class="card-body">
+            <p><strong>Name:</strong> {{ user.first_name }} {{ user.last_name }}</p>
+            <p><strong>Email:</strong> {{ user.email }}</p>
+            <p><strong>Phone:</strong> {{ user.phone }}</p>
+            <p><strong>Country:</strong> {{ user.country }}</p>
+        </div>
+    </div>
+
+    <!-- Latest News Section -->
+    <div class="card mb-4">
+        <div class="card-header">
+            <h4>Latest News</h4>
+        </div>
+        <div class="card-body">
+            <p>Stay tuned for the latest news updates from around the world.</p>
+            <!-- Add dynamic news content here as you develop your news aggregator feature -->
+        </div>
+    </div>
+</div>
+{% endblock %}
