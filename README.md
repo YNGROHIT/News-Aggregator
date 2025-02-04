@@ -8,7 +8,7 @@ Real-time fact-checking using the GROK API to verify the accuracy of the news co
 A user-friendly interface for easy browsing of categorized and verified articles.
 Continuous updates to keep the platform fresh with the latest news.
 
-echnologies Used:
+Technologies Used:
 
 APIs for news aggregation (e.g., News API, Google News)
 Machine Learning (NLP) for topic classification
