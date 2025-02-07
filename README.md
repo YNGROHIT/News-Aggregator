@@ -8,14 +8,4 @@ Real-time fact-checking using the GROK API to verify the accuracy of the news co
 A user-friendly interface for easy browsing of categorized and verified articles.
 Continuous updates to keep the platform fresh with the latest news.
 
-Technologies Used:
-
-APIs for news aggregation (e.g., News API, Google News)
-Machine Learning (NLP) for topic classification
-GROK API for fact-checking
-Backend: Django/Flask, Node.js
-Frontend: React.js, HTML, CSS
-Database: MongoDB, PostgreSQL
-
-
 Objective: To provide users with a reliable, real-time source of fact-checked news and reduce the spread of misinformation.
