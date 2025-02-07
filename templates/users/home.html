@@ -1,36 +1,39 @@
 {% extends 'base.html' %}
 
-{% block title %}Welcome Back, {{ user.first_name }}{% endblock %}
+{% block title %}Latest News - TazaKhabar{% endblock %}
 
 {% block content %}
 <div class="container">
-    <div class="text-center my-5">
-        <h1>Welcome Back, {{ user.first_name }}!</h1>
-        <p>Here's your personalized dashboard.</p>
-    </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light my-3">
+        <ul class="navbar-nav mx-auto">
+            <li class="nav-item"><a class="nav-link" href="{% url 'home' %}?category=business">Business</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'home' %}?category=technology">Technology</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'home' %}?category=health">Health</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'home' %}?category=science">Science</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'home' %}?category=sports">Sports</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'home' %}?category=entertainment">Entertainment</a></li>
+        </ul>
+    </nav>
     
-    <!-- User Profile Section -->
-    <div class="card mb-4">
-        <div class="card-header">
-            <h4>Your Profile</h4>
+    <h1 class="text-center">Latest News</h1>
+    
+    {% if news_articles %}
+        <div class="row">
+            {% for article in news_articles %}
+                <div class="col-md-4 my-3">
+                    <div class="card">
+                        <img src="{{ article.image_url }}" class="card-img-top" alt="News Image">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ article.title }}</h5>
+                            <p class="card-text">{{ article.description }}</p>
+                            <a href="{{ article.url }}" class="btn btn-primary" target="_blank">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
         </div>
-        <div class="card-body">
-            <p><strong>Name:</strong> {{ user.first_name }} {{ user.last_name }}</p>
-            <p><strong>Email:</strong> {{ user.email }}</p>
-            <p><strong>Phone:</strong> {{ user.phone }}</p>
-            <p><strong>Country:</strong> {{ user.country }}</p>
-        </div>
-    </div>
-
-    <!-- Latest News Section -->
-    <div class="card mb-4">
-        <div class="card-header">
-            <h4>Latest News</h4>
-        </div>
-        <div class="card-body">
-            <p>Stay tuned for the latest news updates from around the world.</p>
-            <!-- Add dynamic news content here as you develop your news aggregator feature -->
-        </div>
-    </div>
+    {% else %}
+        <p class="text-center">No news articles available. Try selecting a category.</p>
+    {% endif %}
 </div>
 {% endblock %}

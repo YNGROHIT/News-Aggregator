@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Top Headlines</h2>
+
+<!-- Category Filter -->
+<div class="mb-4">
+    <form method="get">
+        <select name="category" class="form-select" onchange="this.form.submit()">
+            <option value="general" {% if current_category == 'general' %}selected{% endif %}>General</option>
+            {% for category, label in categories %}
+                <option value="{{ category }}" {% if current_category == category %}selected{% endif %}>{{ label }}</option>
+            {% endfor %}
+        </select>
+    </form>
+</div>
+
+<!-- News Articles -->
+<div class="row">
+    {% if articles %}
+        {% for article in articles %}
+        <div class="col-md-4">
+            <div class="card mb-4">
+                {% if article.urlToImage %}
+                    <img src="{{ article.urlToImage }}" class="card-img-top" alt="Image not available">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ article.title }}</h5>
+                    <p class="card-text">{{ article.description }}</p>
+                    <a href="{{ article.url }}" class="btn btn-primary" target="_blank">Read more</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    {% else %}
+        <p>No news available for this category.</p>
+    {% endif %}
+</div>
+{% endblock %}
